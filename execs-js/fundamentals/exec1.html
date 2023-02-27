@@ -43,11 +43,13 @@
 
         arrayDes.textContent = `[ ${array} ]`;
 
-        let assistent = 
+        let assistent = 0
 
-        for (let i = 0; i < 10 ; i++){
+        for (let i = 1; i < array.length ; i++){
             if ( array[0] > array[i] ){
-                array[0]
+                assistent = array[i]
+                array[0] = array[i]
+                console.log(array)
             }
         }
 
