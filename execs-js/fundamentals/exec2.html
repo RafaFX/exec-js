@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exec 1</title>
+    <title>Exec 2</title>
 
     <style>
         *{
@@ -39,28 +39,28 @@
 <body>
     
 
-    <h1>Ordenação de Array</h1>
+    <h1>Array que retorna apenas valores negativos</h1>
 
     <br>
     <br>
 
-    <h2>Array desordenado</h2>
+    <h2>Array</h2>
 
     <br>
 
     <p class="arrayDes"></p>
 
-    <input type="submit" value="Ordenar Array" class="arraySubmit">
+    <input type="submit" value="Extrair negativos" class="arraySubmit">
 
     <br>
 
-    <h2>Array Ordenado</h2>
+    <h2>Array com valores negativos</h2>
 
     <p class="arrayOrd"></p>
 
     <script>
 
-        const array = [150, 10, 1, 2, -10, 23, 99, 500, 16];
+        const array = [100, 200, 300, -400 , -200, -300, 1000];
 
         const arrayDes = document.querySelector('.arrayDes');
 
@@ -70,27 +70,17 @@
 
         arrayDes.textContent = `[ ${array} ]`;
 
-        arraySubmit.addEventListener('click', order)
+        arraySubmit.addEventListener('click', underZero)
 
-        let ord = false;
+        const newArray = [];
 
-        function order(){
-            while(ord === false){
-                ord = true;
+        function underZero(){
                 for(i = 0; i < array.length ;i++){
-                    let sup = 0
-                    if(array[i]>array[i+1]){
-                        sup = array[i];
-                        array[i] = array[i+1];
-                        array[i+1] = sup;
-                        ord = false
+                    if(array[i] < 0){
+                        newArray.unshift(array[i]);
                     }
-                    console.log(array)
+                    console.log(newArray)
                 }
-                
-            }
-            const newArray = array;
-
             arrayOrd.textContent = `[ ${newArray} ]`
         }
 
