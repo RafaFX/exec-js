@@ -24,6 +24,7 @@
             border: solid 2px;
             border-radius: 10px;
             width: 30%;
+            height: 30px;
             display: inline-block;
             padding: 5px;
             box-shadow: 5px 3px 3px #666666;
@@ -39,51 +40,46 @@
 <body>
     
 
-    <h1>Array que soma os números positivos</h1>
-
+    <h1>Digite um número para verificar se ele é divisível por 10</h1>
+    
     <br>
     <br>
 
-    <h2>Array</h2>
+    <input type="number" class="numberField">
 
-    <br>
-
-    <p class="disorderedArray"></p>
-
-    <button class="arrayButton" >Somar</button>
+    <button>Verificar</button>
 
 
     <br>
 
-    <h2>Valores positivos somados</h2>
+    <h2 class="result"></h2>
 
-    <p class="ordainedArray"></p>
 
     <script>
 
-        const array = [10, -100, 20, -33 , 44, 16, 1, 200, -3];
+        const btn = document.querySelector('button');
 
-        const disorderedArray = document.querySelector('.disorderedArray');
+        const numberField = document.querySelector('.numberField');
 
-        const ordainedArray = document.querySelector('.ordainedArray');
+        const result = document.querySelector('.result')
 
-        const btn = document.querySelector('.arrayButton');
-
-        btn.onclick = plusPositivesNum;
-
-        disorderedArray.textContent = `[ ${array} ]`;
-
-        
-
-        function plusPositivesNum () {
-            let plusArray = 0
-                for(i = 0; i < array.length ;i++){
-                    if(array[i] > 0){
-                        plusArray+= array[i];
-                    }
-                }
-                ordainedArray.textContent = `[ ${plusArray} ]`
+        function checkNumber (num){
+        console.log(num);
+        if( num%10 === 0){
+            result.textContent = `${num} é divisível por 10`;
+            result.style.backgroundColor = 'green';
+        }else {
+            result.textContent = `${num} não é divisível por 10`;
+            result.style.backgroundColor = 'red';
         }
+        numberField.value = ''
+    }
+
+        btn.addEventListener('click' , (()=> {
+        checkNumber(numberField.value)
+    }))
+
+
 
         
 

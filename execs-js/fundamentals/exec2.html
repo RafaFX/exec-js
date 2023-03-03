@@ -48,29 +48,32 @@
 
     <br>
 
-    <p class="arrayDes"></p>
+    <p class="disorderedArray"></p>
 
-    <input type="submit" value="Extrair negativos" class="arraySubmit">
+    <button class="arrayButton" >Ordenar Array</button>
+
 
     <br>
 
     <h2>Array com valores negativos</h2>
 
-    <p class="arrayOrd"></p>
+    <p class="ordainedArray"></p>
 
     <script>
 
         const array = [100, 200, 300, -400 , -200, -300, 1000];
 
-        const arrayDes = document.querySelector('.arrayDes');
+        const disorderedArray = document.querySelector('.disorderedArray');
 
-        const arrayOrd = document.querySelector('.arrayOrd')
+        const ordainedArray = document.querySelector('.ordainedArray');
 
-        const arraySubmit = document.querySelector('.arraySubmit')
+        const btn = document.querySelector('button');
 
-        arrayDes.textContent = `[ ${array} ]`;
 
-        arraySubmit.addEventListener('click', underZero)
+        
+        btn.addEventListener('click', underZero)
+
+        disorderedArray.textContent = `[ ${array} ]`;
 
         const newArray = [];
 
@@ -79,9 +82,9 @@
                     if(array[i] < 0){
                         newArray.unshift(array[i]);
                     }
-                    console.log(newArray)
                 }
-            arrayOrd.textContent = `[ ${newArray} ]`
+                btn.removeEventListener('click', underZero)
+                ordainedArray.textContent = `[ ${newArray} ]`;
         }
 
 

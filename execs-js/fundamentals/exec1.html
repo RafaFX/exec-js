@@ -48,50 +48,47 @@
 
     <br>
 
-    <p class="arrayDes"></p>
+    <p class="disorderedArray"></p>
 
-    <input type="submit" value="Ordenar Array" class="arraySubmit">
+    <button class="arrayButton" onclick="order()">Ordenar Array</button>
+
 
     <br>
 
     <h2>Array Ordenado</h2>
 
-    <p class="arrayOrd"></p>
+    <p class="ordainedArray"></p>
 
     <script>
 
         const array = [150, 10, 1, 2, -10, 23, 99, 500, 16];
 
-        const arrayDes = document.querySelector('.arrayDes');
+        const disorderedArray = document.querySelector('.disorderedArray');
 
-        const arrayOrd = document.querySelector('.arrayOrd')
+        const ordainedArray = document.querySelector('.ordainedArray');
 
-        const arraySubmit = document.querySelector('.arraySubmit')
 
-        arrayDes.textContent = `[ ${array} ]`;
+        disorderedArray.textContent = `[ ${array} ]`;
 
-        arraySubmit.addEventListener('click', order)
-
-        let ord = false;
+        let ordination = false;
 
         function order(){
-            while(ord === false){
-                ord = true;
+            while(ordination === false){
+                ordination = true;
                 for(i = 0; i < array.length ;i++){
                     let sup = 0
                     if(array[i]>array[i+1]){
                         sup = array[i];
                         array[i] = array[i+1];
                         array[i+1] = sup;
-                        ord = false
+                        ordination = false;
                     }
-                    console.log(array)
                 }
                 
             }
             const newArray = array;
 
-            arrayOrd.textContent = `[ ${newArray} ]`
+            ordainedArray.textContent = `[ ${newArray} ]`
         }
 
 
@@ -99,3 +96,30 @@
     </script>
 </body>
 </html>
+
+
+
+/* tirar duvida sobre o num ser passado por fora da função e com o parametro em checkNumber(numberField.value) */
+
+        
+
+
+function checkNumber (){
+    let num = numberField.value
+    console.log(num);
+
+    if( num%10 === 0){
+        result.textContent = 'É divisível por 10';
+        result.style.backgroundColor = 'green';
+    }else {
+        result.textContent = 'Não é divisível por 10';
+        result.style.backgroundColor = 'red';
+    }
+    numberField.value = ''
+}
+
+
+btn.addEventListener('click' , (()=> {
+    number = numberField.value
+    checkNumber(number)
+}))
