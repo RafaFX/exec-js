@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exec 2</title>
+    <title>Exec 6</title>
 
     <style>
         *{
@@ -24,6 +24,7 @@
             border: solid 2px;
             border-radius: 10px;
             width: 30%;
+            height: 55px;
             display: inline-block;
             padding: 5px;
             box-shadow: 5px 3px 3px #666666;
@@ -39,54 +40,45 @@
 <body>
     
 
-    <h1>Array que retorna apenas valores negativos</h1>
-
+    <h1>Digite o número de km para transformas em milhas</h1>
+    
     <br>
     <br>
 
-    <h2>Array</h2>
+    <input type="number" class="numberField">
 
-    <br>
-
-    <p class="disorderedArray"></p>
-
-    <button class="arrayButton" >Ordenar Array</button>
+    <button>Transformar para milhas</button>
 
 
     <br>
 
-    <h2>Array com valores negativos</h2>
 
-    <p class="ordainedArray"></p>
+    <br>
+
+    <h2 class="result"></h2>
+
 
     <script>
 
-        const array = [100, 200, 300, -400 , -200, -300, 1000];
-
-        const disorderedArray = document.querySelector('.disorderedArray');
-
-        const ordainedArray = document.querySelector('.ordainedArray');
-
         const btn = document.querySelector('button');
 
+        const numberField = document.querySelector('.numberField');
 
-        btn.addEventListener('click', underZero)
 
-        disorderedArray.textContent = `[ ${array} ]`;
+        const result = document.querySelector('.result');
 
-        const newArray = [];
-
-        function underZero(){
-                for(i = 0; i < array.length ;i++){
-                    if(array[i] < 0){
-                        newArray.unshift(array[i]);
-                    }
-                }
-                btn.removeEventListener('click', underZero)
-                ordainedArray.textContent = `[ ${newArray} ]`;
+        function getNumber (){
+            changeToMiles(numberField.value);
         }
 
 
+        function changeToMiles (numb){
+            const convert = numb * 0.62137;
+            result.textContent = `${numb}km é o mesmo que ${convert} milhas`;
+    }
+
+
+        btn.addEventListener('click' , getNumber);
 
     </script>
 </body>

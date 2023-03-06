@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exec 8</title>
+
+    <style>
+        *{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            border: solid 2px;
+            border-radius: 10px;
+            width: 50%;
+            display: inline-block;
+            padding: 5px;
+            box-shadow: 5px 3px 3px #666666;
+        }
+        h2 {
+            border: solid 2px;
+            border-radius: 10px;
+            width: 30%;
+            height: 30px;
+            display: inline-block;
+            padding: 5px;
+            box-shadow: 5px 3px 3px #666666;
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+
+    <h1>Digite a palavra para saber se é um palíndromo</h1>
+    
+    <br>
+    <br>
+
+    <input type="text" class="textField">
+
+    <button>Verificar</button>
+
+
+    <br>
+
+    <h2 class="result"></h2>
+
+    <br>
+
+
+    <script>
+
+        const btn = document.querySelector('button');
+
+        const textField = document.querySelector('.textField');
+
+        const result = document.querySelector('.result')
+
+
+        function getText (){
+            checkPalindrome(textField.value);
+        }
+
+
+        function checkPalindrome (text){
+
+            
+
+            const textLower = text.toLowerCase();
+
+            const textLenght = textLower.length;
+
+            console.log(textLenght);
+
+            if(textLenght%2 === 0){
+                const textDivided = textLenght / 2;
+                const textFirstHalf = textLower.slice(0, textDivided);
+                const textSecondHalf = textLower.slice(textDivided, textLenght);
+                const words = textFirstHalf.split('');
+                //inverter posição no array
+                //juntar atraves do join
+                //comparar se são iguais
+                console.log(words[1]);
+                console.log(textSecondHalf);
+            }else {
+                console.log('é impar')
+            }
+
+
+
+
+    }
+
+
+
+        btn.addEventListener('click' , getText)
+
+    </script>
+</body>
+</html>

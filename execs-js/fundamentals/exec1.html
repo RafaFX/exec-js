@@ -98,28 +98,3 @@
 </html>
 
 
-
-/* tirar duvida sobre o num ser passado por fora da função e com o parametro em checkNumber(numberField.value) */
-
-        
-
-
-function checkNumber (){
-    let num = numberField.value
-    console.log(num);
-
-    if( num%10 === 0){
-        result.textContent = 'É divisível por 10';
-        result.style.backgroundColor = 'green';
-    }else {
-        result.textContent = 'Não é divisível por 10';
-        result.style.backgroundColor = 'red';
-    }
-    numberField.value = ''
-}
-
-
-btn.addEventListener('click' , (()=> {
-    number = numberField.value
-    checkNumber(number)
-}))
