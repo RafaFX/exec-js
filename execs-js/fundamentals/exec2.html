@@ -69,21 +69,28 @@
 
         const btn = document.querySelector('button');
 
+        btn.onclick = underZero;
 
-        btn.addEventListener('click', underZero)
+        //
 
         disorderedArray.textContent = `[ ${array} ]`;
 
         const newArray = [];
 
+        let control = false;
+
         function underZero(){
-                for(i = 0; i < array.length ;i++){
+            debugger
+                if(control !== true){
+                    for(i = 0; i < array.length ;i++){
                     if(array[i] < 0){
                         newArray.unshift(array[i]);
                     }
+                    control = true;
+                    
                 }
-                btn.removeEventListener('click', underZero)
-                ordainedArray.textContent = `[ ${newArray} ]`;
+                return ordainedArray.textContent = `[ ${newArray} ]`
+            }
         }
 
 

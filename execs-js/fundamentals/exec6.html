@@ -64,17 +64,15 @@
 
         const numberField = document.querySelector('.numberField');
 
-
         const result = document.querySelector('.result');
 
         function getNumber (){
             changeToMiles(numberField.value);
         }
 
-
         function changeToMiles (numb){
             const convert = numb * 0.62137;
-            result.textContent = `${numb}km é o mesmo que ${convert} milhas`;
+            return result.textContent = `${numb}km é o mesmo que ${convert.toFixed(2)} milhas`;
     }
 
 

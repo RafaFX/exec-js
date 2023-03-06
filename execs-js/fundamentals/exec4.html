@@ -69,18 +69,19 @@
 
         function checkNumber (num){
         if( num%10 === 0){
-            result.textContent = `${num} é divisível por 10`;
             result.style.backgroundColor = 'green';
+            return result.textContent = `${num} é divisível por 10`;
+            
         }else {
-            result.textContent = `${num} não é divisível por 10`;
             result.style.backgroundColor = 'red';
+            return result.textContent = `${num} não é divisível por 10`;
         }
         numberField.value = '';
     }
 
     //tirar duvidas sobre retornos
 
-        btn.addEventListener('click' , getNumber)
+        btn.onclick = getNumber;
 
 
 

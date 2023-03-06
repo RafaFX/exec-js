@@ -24,7 +24,7 @@
             border: solid 2px;
             border-radius: 10px;
             width: 30%;
-            height: 30px;
+            height: 55px;
             display: inline-block;
             padding: 5px;
             box-shadow: 5px 3px 3px #666666;
@@ -56,7 +56,6 @@
 
     <br>
 
-
     <script>
 
         const btn = document.querySelector('button');
@@ -65,44 +64,65 @@
 
         const result = document.querySelector('.result')
 
-
         function getText (){
-            checkPalindrome(textField.value);
+            result.textContent = `${checkPalindromePairUnpair(textField.value)}`;
         }
 
-
-        function checkPalindrome (text){
-
-            
+        function checkPalindromePairUnpair (text){
 
             const textLower = text.toLowerCase();
 
             const textLenght = textLower.length;
 
-            console.log(textLenght);
-
             if(textLenght%2 === 0){
-                const textDivided = textLenght / 2;
-                const textFirstHalf = textLower.slice(0, textDivided);
-                const textSecondHalf = textLower.slice(textDivided, textLenght);
-                const words = textFirstHalf.split('');
-                //inverter posição no array
-                //juntar atraves do join
-                //comparar se são iguais
-                console.log(words[1]);
-                console.log(textSecondHalf);
-            }else {
-                console.log('é impar')
+                const result = checkPalindrome(textLenght, textLower, 0)
+                return result
             }
-
-
-
+            else{
+                const result =checkPalindrome(textLenght, textLower, 1)
+                return result
+            }
 
     }
 
 
+            function checkPalindrome(textNumberLenght, text, number){
 
-        btn.addEventListener('click' , getText)
+                const textDivided = Math.floor(textNumberLenght / 2);
+
+                const textFirstHalf = text.slice(0, textDivided);
+
+                const textSecondHalf = text.slice(textDivided + number, textNumberLenght);
+
+                const textFirstHalfArray = textFirstHalf.split('');
+
+                const arrayLength = textFirstHalfArray.length;
+
+                const supportArray = textFirstHalfArray; 
+
+                let supportVariable = 0;
+
+                //gueretz msm utilizando outro array no for, continua looping infinito caso eu n guarde o valor de textFirstHalfArray.length em uma variavel e coloque ele direto lá
+
+                for(i = 0; i < arrayLength ; i++){
+                    supportVariable = supportArray[i];
+                    supportArray[i] = supportArray[i+1];
+                    supportArray[i+1] = supportVariable;
+                }
+
+                const joinFirstHalfArray = supportArray.join('');
+                    if(joinFirstHalfArray === textSecondHalf){
+                        const resultPositive = `${textField.value} é um palíndromo`;
+                        result.style.backgroundColor = 'green';
+                        return resultPositive;
+                    }else {
+                        const resultNegative = `${textField.value} não é um palíndromo`;
+                        result.style.backgroundColor = 'red';
+                        return resultNegative;
+                    }
+            }
+
+            btn.onclick = getText;
 
     </script>
 </body>

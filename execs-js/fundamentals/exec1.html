@@ -51,6 +51,7 @@
     <p class="disorderedArray"></p>
 
     <button class="arrayButton" onclick="order()">Ordenar Array</button>
+    <!-- () na função pq n esta executando direto sem chamar o botão -->
 
 
     <br>
@@ -88,7 +89,7 @@
             }
             const newArray = array;
 
-            ordainedArray.textContent = `[ ${newArray} ]`
+            return ordainedArray.textContent = `[ ${newArray} ]`
         }
 
 

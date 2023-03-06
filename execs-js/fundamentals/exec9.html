@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exec 9</title>
+
+    <style>
+        *{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            border: solid 2px;
+            border-radius: 10px;
+            width: 50%;
+            display: inline-block;
+            padding: 5px;
+            box-shadow: 5px 3px 3px #666666;
+        }
+        h2 {
+            border: solid 2px;
+            border-radius: 10px;
+            width: 30%;
+            height: 55px;
+            display: inline-block;
+            padding: 5px;
+            box-shadow: 5px 3px 3px #666666;
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+
+    <h1>Digite uma palavra e um número para saber qual letra está no index do número digitado</h1>
+    
+    <br>
+    <br>
+
+    <input type="text" class="textField">
+
+    <input type="number" class="numberField">
+
+    <button>Verificar</button>
+
+    <br>
+
+    <h2 class="result"></h2>
+
+    <br>
+
+    <script>
+
+        const btn = document.querySelector('button');
+
+        const textField = document.querySelector('.textField');
+
+        const numberField = document.querySelector('.numberField');
+
+        const result = document.querySelector('.result');
+
+        function getText(){
+            result.textContent = `A letra que está no index ${numberField.value} é : ${numberTextPosition(textField.value,numberField.value)}`;
+        }
+
+        function numberTextPosition(text,number){
+            return text[number-1]
+        }
+
+        btn.onclick = getText;
+
+    </script>
+</body>
+</html>

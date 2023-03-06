@@ -67,35 +67,35 @@
 
 
         function getText (){
-            findNumberOfVogals(textField.value);
+            includesVogal(textField.value);
         }
 
 
-        function findNumberOfVogals (text){
+        function includesVogal (text){
 
             const textLower = text.toLowerCase();
 
             let numberOfVogas = 0;
 
             if (textLower.includes('a')){
-                numberOfVogas = includesVogal('a',textLower,numberOfVogas);
+                numberOfVogas = findNumberOfVogals('a',textLower,numberOfVogas);
             }
             if (textLower.includes('e')){
-                numberOfVogas = includesVogal('e',textLower,numberOfVogas);
+                numberOfVogas = findNumberOfVogals('e',textLower,numberOfVogas);
             }
             if (textLower.includes('i')){
-                numberOfVogas = includesVogal('i',textLower,numberOfVogas);
+                numberOfVogas = findNumberOfVogals('i',textLower,numberOfVogas);
             }
             if( textLower.includes('o')){
-                numberOfVogas = includesVogal('o',textLower,numberOfVogas);
+                numberOfVogas = findNumberOfVogalsl('o',textLower,numberOfVogas);
             }
             if (textLower.includes('u')){
-                numberOfVogas = includesVogal('u',textLower,numberOfVogas);
+                numberOfVogas = findNumberOfVogals('u',textLower,numberOfVogas);
             }
-            result.textContent = `O número de vogais desta palavra é ${numberOfVogas}`;
+            return result.textContent = `O número de vogais desta palavra é ${numberOfVogas}`;
     }
 
-            function includesVogal(vogal,textFromFunction,numberOfVogasFromFunction){
+            function findNumberOfVogals(vogal,textFromFunction,numberOfVogasFromFunction){
 
                 firstOccurrence = textFromFunction.indexOf(vogal);
 
@@ -109,7 +109,7 @@
             }
 
 
-        btn.addEventListener('click' , getText)
+        btn.onclick = getText;
 
     </script>
 </body>
